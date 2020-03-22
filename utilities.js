@@ -36,11 +36,11 @@ exports.calculatePercentage = (total, amount, shouldRound = false) => {
   return shouldRound ? Math.ceil(rate) : rate;
 };
 
-exports.calculatePercentageIncrease = (today, amount, shouldRound = false) => {
+exports.calculatePercentageIncrease = (today, total, shouldRound = false) => {
   // percent increase from yesterday = 100 * (today - yesterday) / yesterday, 
   //   where yesterday = total - today.
   let todayParsed = parseInt(today.replace(",", ""))
-  let totalParsed = parseInt(amount.replace(",", ""))
+  let totalParsed = parseInt(total.replace(",", ""))
   let yesterday = totalParsed - todayParsed
   let rate = (todayParsed - yesterday) * 100 / yesterday
   if (isNaN(rate)) return 0
