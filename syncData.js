@@ -20,11 +20,11 @@ exports.gatherAllRegions = () => {
         data[regionName].regionTotal.cases,
         true
       ),
-      data[regionName].regionTotal.todayDeathRate = utilities.calculatePercentage(
+      data[regionName].regionTotal.todayDeathRate = utilities.calculatePercentageIncrease(
         data[regionName].regionTotal.todayDeaths,
         data[regionName].regionTotal.cases
       ),
-      data[regionName].regionTotal.todayCaseRate = utilities.calculatePercentage(
+      data[regionName].regionTotal.todayCaseRate = utilities.calculatePercentageIncrease(
         data[regionName].regionTotal.todayCases,
         data[regionName].regionTotal.cases
       )

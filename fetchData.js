@@ -66,11 +66,11 @@ exports.fetchAllData = async () => {
 
 const calculatePercentages = regions => {
   regions.map(region => {
-    region.todayDeathRate = utilities.calculatePercentage(
+    region.todayDeathRate = utilities.calculatePercentageIncrease(
       region.todayDeaths,
       region.cases
     );
-    region.todayCaseRate = utilities.calculatePercentage(
+    region.todayCaseRate = utilities.calculatePercentageIncrease(
       region.todayCases,
       region.cases
     );
@@ -129,11 +129,11 @@ const gatherAllOverrides = allData => {
             allSyncedData["USA"].regionTotal.cases,
             true
           ),
-          allSyncedData["USA"].regionTotal.todayDeathRate = utilities.calculatePercentage(
+          allSyncedData["USA"].regionTotal.todayDeathRate = utilities.calculatePercentageIncrease(
             allSyncedData["USA"].regionTotal.todayDeaths,
             allSyncedData["USA"].regionTotal.cases
           ),
-          allSyncedData["USA"].regionTotal.todayCaseRate = utilities.calculatePercentage(
+          allSyncedData["USA"].regionTotal.todayCaseRate = utilities.calculatePercentageIncrease(
             allSyncedData["USA"].regionTotal.todayCases,
             allSyncedData["USA"].regionTotal.cases
           )

@@ -36,6 +36,19 @@ exports.calculatePercentage = (total, amount, shouldRound = false) => {
   return shouldRound ? Math.ceil(rate) : rate;
 };
 
+exports.calculatePercentageIncrease = (today, amount, shouldRound = false) => {
+  // percent increase from yesterday = 100 * (today - yesterday) / yesterday, 
+  //   where yesterday = total - today.
+  let todayParsed = parseInt(today.replace(",", ""))
+  let totalParsed = parseInt(amount.replace(",", ""))
+  let yesterday = totalParsed - todayParsed
+  let rate = (todayParsed - yesterday) * 100 / yesterday
+  if (isNaN(rate)) return 0
+  rate = rate.toString();
+  rate = rate.slice(0, rate.indexOf(".") + 3);
+  return shouldRound ? Math.ceil(rate) : rate;
+};
+
 exports.subtractTwoValues = (value1, value2) => {
   return (
     this.parseCommas(value1) - (this.parseCommas(value2) || 0)
