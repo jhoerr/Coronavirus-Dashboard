@@ -68,7 +68,7 @@ const calculatePercentages = regions => {
   regions.map(region => {
     region.todayDeathRate = utilities.calculatePercentageIncrease(
       region.todayDeaths,
-      region.cases
+      region.deaths
     );
     region.todayCaseRate = utilities.calculatePercentageIncrease(
       region.todayCases,
@@ -131,7 +131,7 @@ const gatherAllOverrides = allData => {
           ),
           allSyncedData["USA"].regionTotal.todayDeathRate = utilities.calculatePercentageIncrease(
             allSyncedData["USA"].regionTotal.todayDeaths,
-            allSyncedData["USA"].regionTotal.cases
+            allSyncedData["USA"].regionTotal.deaths
           ),
           allSyncedData["USA"].regionTotal.todayCaseRate = utilities.calculatePercentageIncrease(
             allSyncedData["USA"].regionTotal.todayCases,
