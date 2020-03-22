@@ -46,8 +46,8 @@ exports.calculatePercentageIncrease = (today, total, shouldRound = false) => {
   let todayParsed = parseInt(today.replace(",", ""))
   let totalParsed = parseInt(total.replace(",", ""))
   let yesterday = totalParsed - todayParsed
-  let rate = (todayParsed - yesterday) * 100 / yesterday
   return formatRate(rate, shouldRound);
+  let rate = (totalParsed - yesterday) * 100 / yesterday
 };
 
 exports.subtractTwoValues = (value1, value2) => {
